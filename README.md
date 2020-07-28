@@ -8,3 +8,4 @@ DepthFirstTopologicalSort
 FloydWarshallAlgorithm  
 KosarajuAlgorithm  
 PrimAlgorithm
+KruskalAlgorithm
