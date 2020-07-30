@@ -9,3 +9,4 @@ FloydWarshallAlgorithm
 KosarajuAlgorithm  
 PrimAlgorithm
 KruskalAlgorithm
+BreadthFirstSearch
