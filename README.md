@@ -7,6 +7,6 @@ Currently available algorithm
 DepthFirstTopologicalSort  
 FloydWarshallAlgorithm  
 KosarajuAlgorithm  
-PrimAlgorithm
-KruskalAlgorithm
+PrimAlgorithm  
+KruskalAlgorithm  
 BreadthFirstSearch
