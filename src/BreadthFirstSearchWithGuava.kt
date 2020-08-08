@@ -8,7 +8,6 @@ import java.util.*
 
 @Suppress("UnstableApiUsage")
 class BreadthFirstSearchWithGuava {
-    // WIP
     // https://hyperskill.org/learn/step/7072
     fun main7072() {
         val a = "A"
@@ -26,10 +25,6 @@ class BreadthFirstSearchWithGuava {
         val m = "M"
 //        val nodes = setOf(a,)
 
-        val adjacencyList = listOf(
-            a to b
-        ).groupBy { it.first }
-            .mapValues { it.value.map { it.second } }
         val graph = GraphBuilder
             .undirected()
             .allowsSelfLoops(false)
@@ -98,6 +93,6 @@ class BreadthFirstSearchWithGuava {
 
 }
 
-fun main() {
-    BreadthFirstSearchWithGuava().main7072()
-}
+//fun main() {
+//    BreadthFirstSearchWithGuava().main7072()
+//}
