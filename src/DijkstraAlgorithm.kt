@@ -142,6 +142,6 @@ class DijkstraAlgorithm {
 
 }
 
-fun main() {
-    DijkstraAlgorithm().main5777()
-}
+//fun main() {
+//    DijkstraAlgorithm().main5777()
+//}
