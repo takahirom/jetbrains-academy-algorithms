@@ -17,3 +17,7 @@ DijkstraAlgorithm
 # String algorithms
 
 PrefixFunction
+
+# Dynamic programming algorithms
+
+EditDistance
