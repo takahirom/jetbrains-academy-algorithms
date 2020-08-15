@@ -20,4 +20,5 @@ PrefixFunction
 
 # Dynamic programming algorithms
 
-EditDistance
+EditDistance  
+EditDistanceAlignment
