@@ -22,3 +22,9 @@ PrefixFunction
 
 EditDistance  
 EditDistanceAlignment
+
+# Sort algorithms
+CountingSort  
+InsertionSort  
+MergeSort  
+SelectionSort  
