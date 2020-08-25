@@ -98,7 +98,7 @@ class HashTable {
     fun quadraticProbingSample() {
         class Table {
             val REMOVE_SPECIAL_VALUE = -1
-            val NOT_SET_SPECIAL_VALUE = -1
+            val NOT_SET_SPECIAL_VALUE = 0
             private val bucketSize = 8
             private val table = Array(bucketSize) {
                 NOT_SET_SPECIAL_VALUE
@@ -106,10 +106,10 @@ class HashTable {
 
             fun add(value: Int) {
                 var colledeIndex = 0
-                while (table[(value + colledeIndex * colledeIndex) % bucketSize] > 0) {
+                while (table[hash(value, colledeIndex) % bucketSize] > 0) {
                     colledeIndex++
                 }
-                table[(value + colledeIndex * colledeIndex) % bucketSize] = value
+                table[hash(value, colledeIndex) % bucketSize] = value
             }
 
             fun delete(value: Int) {
@@ -118,16 +118,22 @@ class HashTable {
 
             fun indexOf(value: Int): Int {
                 var additionalIndex = 0
-                while (table[(value + additionalIndex * additionalIndex) % bucketSize] != value && table[(value + additionalIndex * additionalIndex) % bucketSize] != NOT_SET_SPECIAL_VALUE) {
+                while (table[(hash(value, additionalIndex)) % bucketSize] != value && table[hash(
+                        value,
+                        additionalIndex
+                    ) % bucketSize] != NOT_SET_SPECIAL_VALUE
+                ) {
                     // search not set field or value
                     additionalIndex++
                 }
-                val selectedValue = table[(value + additionalIndex * additionalIndex) % bucketSize]
+                val selectedValue = table[hash(value, additionalIndex) % bucketSize]
                 if (selectedValue == NOT_SET_SPECIAL_VALUE) {
                     return -1
                 }
-                return (value + additionalIndex * additionalIndex) % bucketSize
+                return hash(value, additionalIndex) % bucketSize
             }
+
+            private fun hash(value: Int, additionalIndex: Int) = value + additionalIndex * additionalIndex
 
             fun printTable() {
                 println("table:")
@@ -149,8 +155,61 @@ class HashTable {
         println("indexOf(2):" + table.indexOf(2))
         table.printTable()
     }
+
+    fun main9569() {
+        class Table {
+            val REMOVE_SPECIAL_VALUE = -1
+            val NOT_SET_SPECIAL_VALUE = 0
+            private val bucketSize = 8
+            private val table = arrayOf(16, 0, 2, 3, 0, 5, -1, -1)
+
+            fun add(value: Int) {
+                var colledeIndex = 0
+                while (table[hash(value, colledeIndex) % bucketSize] > 0) {
+                    colledeIndex++
+                }
+                table[hash(value, colledeIndex) % bucketSize] = value
+            }
+
+            fun delete(value: Int) {
+                table[indexOf(value)] = REMOVE_SPECIAL_VALUE
+            }
+
+            fun indexOf(value: Int): Int {
+                var additionalIndex = 0
+                while (table[(hash(value, additionalIndex)) % bucketSize] != value && table[hash(
+                        value,
+                        additionalIndex
+                    ) % bucketSize] != NOT_SET_SPECIAL_VALUE
+                ) {
+                    println("searched" + hash(value, additionalIndex) % bucketSize)
+                    // search not set field or value
+                    additionalIndex++
+                }
+                val selectedValue = table[hash(value, additionalIndex) % bucketSize]
+                if (selectedValue == NOT_SET_SPECIAL_VALUE) {
+                    return -1
+                }
+                return hash(value, additionalIndex) % bucketSize
+            }
+
+            private fun hash(value: Int, additionalIndex: Int) =
+                value + additionalIndex * additionalIndex + additionalIndex
+
+            fun printTable() {
+                println("table:")
+                for (i in table) {
+                    println(i)
+                }
+            }
+        }
+
+        val table = Table()
+        table.printTable()
+        println(table.indexOf(8))
+    }
 }
 
 fun main() {
-    HashTable().quadraticProbingSample()
+    HashTable().main9569()
 }
