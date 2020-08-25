@@ -28,3 +28,8 @@ CountingSort
 InsertionSort  
 MergeSort  
 SelectionSort  
+
+# Hash table algorithms
+ChainingHashTable  
+LinearProbingHashTable  
+QuadraticProbingHashTable  
