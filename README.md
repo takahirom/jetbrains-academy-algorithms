@@ -33,3 +33,6 @@ SelectionSort
 ChainingHashTable  
 LinearProbingHashTable  
 QuadraticProbingHashTable  
+
+# Tree algorithms
+BinaryTree
