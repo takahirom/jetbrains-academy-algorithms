@@ -35,4 +35,5 @@ LinearProbingHashTable
 QuadraticProbingHashTable  
 
 # Tree algorithms
-BinaryHeap
+BinaryHeap  
+BinarySearchTree
