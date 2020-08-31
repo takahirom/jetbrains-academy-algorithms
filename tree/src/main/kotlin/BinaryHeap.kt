@@ -1,10 +1,11 @@
-class BinaryTree {
+class BinaryHeap {
 
     class Tree(
         private val nodes: MutableList<Int> = mutableListOf<Int>()
     ) {
         // log(n)
         fun add(newNode: Int) {
+            println("startInsert!$newNode")
             nodes.add(newNode)
             var checkedNodeIndex = nodes.size - 1
             while (true) {
@@ -18,6 +19,7 @@ class BinaryTree {
                 val parentIndex = checkedNodeIndex / 2 - 1 + checkedNodeIndex % 2
                 val parentNode = nodes[parentIndex]
                 if (checkedNode < parentNode) {
+                    println("rotate!")
                     nodes[parentIndex] = checkedNode
                     nodes[checkedNodeIndex] = parentNode
                 } else {
@@ -70,7 +72,7 @@ class BinaryTree {
             while (true) {
                 (0 until currentNodesOfDepth).forEach { _ ->
                     if (nodes.getOrNull(currentIndex) == null) return println()
-                    print(" ".repeat(2 * nodes.size / currentNodesOfDepth) + nodes[currentIndex] + " ")
+                    print(" ".repeat(4 * nodes.size / currentNodesOfDepth) + nodes[currentIndex] + " ")
                     currentIndex++
                 }
                 println()
@@ -103,8 +105,18 @@ class BinaryTree {
         println(tree.heapSort())
     }
 
+    // https://hyperskill.org/learn/step/5182
+    fun main5182() {
+        val tree = Tree.of(6, 10, 15, 14, 16, 22, 21, 34, 40, 27, 31, 36, 28, 33, 35)
+        tree.add(13)
+        tree.printTree()
+        tree.add(12)
+        tree.printTree()
+        tree.add(11)
+        tree.printTree()
+    }
 }
 
 fun main() {
-    BinaryTree().sample()
+    BinaryHeap().main5182()
 }
