@@ -31,6 +31,7 @@ class BinarySearchTree {
                 parent?.replaceChild(this, null)
             }
 
+            // probably O(log N)
             fun find(i: Int): Node? {
                 println("find:" + i + " current:" + value)
                 if (value == i) return this
@@ -43,6 +44,7 @@ class BinarySearchTree {
                 }
             }
 
+            // probably O(log N)
             fun insert(i: Int) {
                 if (i <= value) {
                     val left = left
@@ -61,6 +63,7 @@ class BinarySearchTree {
                 }
             }
 
+            // probably O(log N)
             fun findRightMostNode(): Node {
                 val rightNode = right
                 if (rightNode != null) return rightNode.findRightMostNode()
