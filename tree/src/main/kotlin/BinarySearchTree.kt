@@ -136,7 +136,7 @@ class BinarySearchTree {
         }
 
         // O (maxValue * log N) = log N
-        fun notExistValues(): List<Int> {
+        fun changeHeightValues(): List<Int> {
             val currentHeight = height()
             return (1 until root.findMaxNode().value).map { value ->
                 val tree = copy(root.copy())
@@ -214,7 +214,7 @@ class BinarySearchTree {
             24 to 25
         )
         val tree = Tree.of(16, edges)
-        println(tree.notExistValues().joinToString(" "))
+        println(tree.changeHeightValues().joinToString(" "))
     }
 
 }
