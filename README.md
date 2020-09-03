@@ -36,4 +36,5 @@ QuadraticProbingHashTable
 
 # Tree algorithms
 BinaryHeap  
-BinarySearchTree
+BinarySearchTree  
+TreeTraversals
