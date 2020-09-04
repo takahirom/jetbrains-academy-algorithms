@@ -10,12 +10,57 @@ class TreeTraversals {
             fun visit(node: Node): List<Node> {
                 val nodes = mutableListOf<Node>()
                 nodes.add(node)
-                node.children.forEach{
+                node.children.forEach {
                     nodes += visit(it)
                 }
                 return nodes
             }
             return visit(root)
+        }
+
+        // CAUTION: this is not for binary tree
+        fun inOrderTraversal(): List<Node> {
+            fun visit(node: Node): List<Node> {
+                val nodes = mutableListOf<Node>()
+
+                require(node.children.size <= 2)
+                node.children.getOrNull(0)?.let {
+                    nodes.addAll(visit(it))
+                }
+                nodes.add(node)
+                node.children.getOrNull(1)?.let {
+                    nodes.addAll(visit(it))
+                }
+                return nodes
+            }
+            return visit(root)
+        }
+
+        fun postOrderTraversal(): List<Node> {
+            fun visit(node: Node): List<Node> {
+                val nodes = mutableListOf<Node>()
+                node.children.forEach {
+                    nodes += visit(it)
+                }
+                nodes.add(node)
+                return nodes
+            }
+            return visit(root)
+        }
+
+        @OptIn(ExperimentalStdlibApi::class)
+        fun levelOrderTraversal(): List<Node> {
+            val deque = ArrayDeque<Node>()
+            deque.add(root)
+            val result = mutableListOf<Node>()
+            while (deque.isNotEmpty()){
+                val first = deque.removeFirst()
+                result.add(first)
+                first.children.forEach {
+                    deque.add(it)
+                }
+            }
+            return result
         }
 
 
@@ -47,6 +92,9 @@ class TreeTraversals {
             )
         )
         println(tree.preOrderTraversal())
+        println(tree.inOrderTraversal())
+        println(tree.postOrderTraversal())
+        println(tree.levelOrderTraversal())
     }
 
 }
