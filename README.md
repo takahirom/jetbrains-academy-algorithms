@@ -16,7 +16,11 @@ DijkstraAlgorithm
 
 # String algorithms
 
-PrefixFunction
+PrefixFunction  
+HammingDistance  
+KnuthMorrisPratt  
+StringHash  
+RabinKarp  
 
 # Dynamic programming algorithms
 
