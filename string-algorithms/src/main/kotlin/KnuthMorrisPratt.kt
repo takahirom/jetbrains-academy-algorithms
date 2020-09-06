@@ -121,7 +121,6 @@ class KnuthMorrisPratt {
 
                 println(matched)
                 val prefix = prefixArray.getOrElse(matched.length - 1) { 0 }
-                Thread.sleep(1000)
                 sIndex = prefix
                 matched = matched.take(prefix)
                 continue
